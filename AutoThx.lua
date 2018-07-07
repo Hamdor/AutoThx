@@ -21,7 +21,7 @@ end
 ---
 function print_gz()
   if enabled ~= true then return end
-  idx = math.random(0, (#gz_msgs)-1)
+  idx = math.random(1, #gz_msgs)
   SendChatMessage(gz_msgs[idx], "GUILD")
   achievement_received = false
 end
@@ -29,7 +29,7 @@ end
 --- Handler for ADDON_LOADED
 function events:ADDON_LOADED(name)
   if name ~= "AutoThx" then return end
-  name, realm = UnitFullName("player")
+  local name, realm = UnitName("player"), GetRealmName()
   self_name = name.."-"..realm
 end
 
@@ -64,7 +64,8 @@ function events:CHAT_MSG_GUILD(msg, author, msg_lang, chat_line_id, sender_guid)
   for word in msg:gmatch("%w+") do table.insert(words, word) end
   for _, word in pairs(words) do
     if word == "gz" or word == "gratz" or word == "gratulation" or
-       word == "ckwunsch" then
+       word == "ckwunsch" or word == "ckwunsch!" or word == "gw" or
+       word == "GZ" or word == "gratuliere" then
       gz_received = true
     end
   end
