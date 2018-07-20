@@ -1,4 +1,4 @@
-## Interface: 70300
+## Interface: 80000
 ## Title: AutoThx
 ## Notes: Answers gratz messages in your guilde chat.
 ## Author: Hamdor
