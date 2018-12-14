@@ -29,7 +29,7 @@ end
 --- Handler for ADDON_LOADED
 function events:ADDON_LOADED(name)
   if name ~= "AutoThx" then return end
-  local name, realm = UnitName("player"), GetRealmName()
+  local name, realm = UnitFullName("player")
   self_name = name.."-"..realm
 end
 
